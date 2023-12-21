@@ -1,3 +1,4 @@
+
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.0'
@@ -8,28 +9,31 @@ group = 'com.gojgho'
 version = '0.0.1-SNAPSHOT'
 
 java {
-    sourceCompatibility = '21'
+    sourceCompatibility = '17'
 }
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
+subprojects {
+
 }
 
-repositories {
-    mavenCentral()
-}
+
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'com.mysql:mysql-connector-j'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation project(':service-api')
+    implementation project(':service-common')
+
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+jar {
+    enabled = true
+}
+
+tasks.named('bootJar') {
+    enabled = false
+}
+
