@@ -3,3 +3,4 @@ rootProject.name = 'gojgho-ecommerce-service'
 include ("service-api")
 include ("service-core")
 include ("service-common")
+include ('service-batch')
