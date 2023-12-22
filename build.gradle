@@ -41,7 +41,7 @@ subprojects {
     }
 }
 
-project(':service-api') {
+project(':service-api') { // 컴파일 시 service-domain 로딩
     dependencies {
         compileOnly project(':service-domain')
     }
@@ -53,7 +53,29 @@ project(':service-batch') {
     }
 }
 
+
+// 아래 프로젝트들은 bootJar로 패키징 할 필요 없음
 project(':service-domain') {
+    bootJar { enabled = false }
+    jar { enabled = true }
+}
+
+project(':service-common') {
+    bootJar { enabled = false }
+    jar { enabled = true }
+}
+
+project(':service-core') {
+    bootJar { enabled = false }
+    jar { enabled = true }
+}
+
+project(':service-external') {
+    bootJar { enabled = false }
+    jar { enabled = true }
+}
+
+project(':service-log') {
     bootJar { enabled = false }
     jar { enabled = true }
 }
