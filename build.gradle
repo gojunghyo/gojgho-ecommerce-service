@@ -1,3 +1,8 @@
+
+/**
+ * Gradle 7.0 버전 하위 compile, testCompile, runtime, testRuntime 사용가능
+ * Gradle 7.0 버전 이상 implementation, testImplementation, runtimeOnly, testRuntimeOnly로 로 변경하여 사용가능
+ */
 plugins {
     id 'java'
     id 'org.springframework.boot' version '2.7.9'
@@ -53,8 +58,7 @@ project(':service-batch') {
     }
 }
 
-
-// 아래 프로젝트들은 bootJar로 패키징 할 필요 없음
+// 아래 프로젝트들은 bootJar로 패키징 할 필요 없음, 즉  main() 메서드 불필요
 project(':service-domain') {
     bootJar { enabled = false }
     jar { enabled = true }
