@@ -21,7 +21,12 @@ subprojects {
 dependencies {
 
     implementation project(':service-api')
+    implementation project(':service-core')
     implementation project(':service-common')
+
+    implementation project(':service-domain')
+    implementation project(':service-external')
+    implementation project(':service-log')
 
 }
 
