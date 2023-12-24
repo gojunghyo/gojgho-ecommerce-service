@@ -1,1 +1,1 @@
-./gradlew flywayClean flywayBaseline flywayMigrate
+./gradlew flywayClean flywayMigrate

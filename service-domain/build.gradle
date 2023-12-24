@@ -1,3 +1,19 @@
+plugins {
+    id 'org.flywaydb.flyway' version '7.5.0'
+}
 dependencies {
-    runtimeOnly 'com.mysql:mysql-connector-j'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'mysql:mysql-connector-java:8.0.23' // MySQL 드라이버 추가
+    implementation 'org.flywaydb:flyway-core:7.5.0'
+}
+
+
+flyway {
+    url = "jdbc:mysql://localhost:3306/ecommerce_service?useSSL=false"
+    user = "root"
+    password = "root"
+    encoding = 'UTF-8'
+    outOfOrder = true // 여러브랜치에서 서로 다른 날짜로 만들어도 작동하도록
+    validateOnMigrate = true
 }

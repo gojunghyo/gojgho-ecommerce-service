@@ -1,0 +1,57 @@
+spring:
+  profiles:
+    active: local
+    include:
+
+
+  main:
+    web-application-type: none
+
+  batch:
+    jdbc:
+      initialize-schema: embedded
+
+  output:
+    ansi:
+      enabled: always
+
+service:
+  batch:
+    datasource:
+      poolName: service-batch-cp
+      type: com.zaxxer.hikari.HikariDataSource
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://localhost:3306/ecommerce_service_batch?useSSL=false
+      username: root
+      password: root
+      idleTimeout: 30000
+      maxLifeTime: 58000
+      maximumPoolSize: 5
+
+logging:
+  level:
+    org.springframework: INFO
+    org.springframework.web.client: DEBUG
+    org.springframework.jdbc: WARN
+    org.springframework.batch: WARN
+    org.hibernate:
+      SQL: TRACE
+      tool.hbm2ddl: DEBUG
+      type: INFO
+      type.descriptor.sql.BasicBinder: TRACE
+      stat: DEBUG
+      type.BasicTypeRegistry: WARN
+    com.querydsl: INFO
+    service.batch: DEBUG
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
+---
+spring:
+  config:
+    activate:
+      on-profile: beta
