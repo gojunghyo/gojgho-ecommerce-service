@@ -1,0 +1,16 @@
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/ecommerce_service?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  properties:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQLDialect
+
+#MySQL의 8.x 버전 이후부터 발생하는 문제 allowPublicKeyRetrieval=true 로 설정 변경

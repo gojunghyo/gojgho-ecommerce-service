@@ -2,10 +2,12 @@ plugins {
     id 'org.flywaydb.flyway' version '7.5.0'
 }
 dependencies {
+//    implementation project(":service-common")
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'mysql:mysql-connector-java:8.0.23' // MySQL 드라이버 추가
-    implementation 'org.flywaydb:flyway-core:7.5.0'
+    implementation("org.flywaydb:flyway-mysql")
+
 }
 
 

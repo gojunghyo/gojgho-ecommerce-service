@@ -1,5 +1,11 @@
 dependencies {
+
+    implementation project(':service-domain') //service-api는 service-domain의 클래스들을 참조할 수 있는 상태로 설정
+    implementation project(":service-common")
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation project(':service-domain')
+
+    implementation "io.springfox:springfox-swagger-ui:3.0.0"
+
 }

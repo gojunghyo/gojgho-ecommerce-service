@@ -60,6 +60,9 @@ project(':service-batch') {
 
 // 아래 프로젝트들은 bootJar로 패키징 할 필요 없음, 즉  main() 메서드 불필요
 project(':service-domain') {
+    dependencies {
+        compileOnly project(':service-common')
+    }
     bootJar { enabled = false }
     jar { enabled = true }
 }
