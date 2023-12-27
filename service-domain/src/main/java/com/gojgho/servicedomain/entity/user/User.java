@@ -16,7 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity(name = "user")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
-public class UserEntity {
+public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -24,5 +24,10 @@ public class UserController {
     return ResponseEntity.ok().body(users);
   }
 
+  @RequestMapping("/find/all/querydsl")
+  public ResponseEntity<List<UserDto>> findAll() {
+    List<UserDto> users = userService.findAllUsers();
+    return ResponseEntity.ok().body(users);
+  }
 
 }

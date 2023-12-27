@@ -1,7 +1,7 @@
 package com.gojgho.servicedomain.dto;
 
 import com.gojgho.servicecommon.dto.AbstractDto;
-import com.gojgho.servicedomain.entity.user.UserEntity;
+import com.gojgho.servicedomain.entity.user.User;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -13,12 +13,12 @@ public class UserDto extends AbstractDto {
   private String userName;
   private String userEmail;
 
-  public static UserDto fromEntity(UserEntity entity) {
+  public static UserDto fromEntity(User entity) {
     return AbstractDto.fromEntity(UserDto.class, entity);
   }
 
-  public UserEntity toEntity() {
-    return super.createNewEntity(UserEntity.class);
+  public User toEntity() {
+    return super.createNewEntity(User.class);
   }
 
 }

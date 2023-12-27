@@ -49,6 +49,7 @@ subprojects {
 project(':service-api') { // 컴파일 시 service-domain 로딩
     dependencies {
         compileOnly project(':service-domain')
+        compileOnly project(':service-common')
     }
 }
 
@@ -73,11 +74,17 @@ project(':service-common') {
 }
 
 project(':service-core') {
+    dependencies {
+        compileOnly project(":service-external")
+    }
     bootJar { enabled = false }
     jar { enabled = true }
 }
 
 project(':service-external') {
+    dependencies {
+        compileOnly project(':service-domain')
+    }
     bootJar { enabled = false }
     jar { enabled = true }
 }

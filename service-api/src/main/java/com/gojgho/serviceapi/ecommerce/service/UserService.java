@@ -21,4 +21,11 @@ public class UserService {
          .collect(Collectors.toList());
   }
 
+  public List<UserDto> findAll() {
+    return userRepository.search()
+        .stream()
+        .map(UserDto::fromEntity)
+        .collect(Collectors.toList());
+  }
+
 }
