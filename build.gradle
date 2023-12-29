@@ -73,23 +73,10 @@ project(':service-common') {
     jar { enabled = true }
 }
 
-project(':service-core') {
-    dependencies {
-        compileOnly project(":service-external")
-    }
-    bootJar { enabled = false }
-    jar { enabled = true }
-}
-
 project(':service-external') {
     dependencies {
         compileOnly project(':service-domain')
     }
-    bootJar { enabled = false }
-    jar { enabled = true }
-}
-
-project(':service-log') {
     bootJar { enabled = false }
     jar { enabled = true }
 }
