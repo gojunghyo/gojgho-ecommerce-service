@@ -8,16 +8,14 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerA
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 
 @Configuration
-//@EnableAutoConfiguration(exclude = {
-//    DataSourceAutoConfiguration.class,
-//    DataSourceTransactionManagerAutoConfiguration.class,
-//    HibernateJpaAutoConfiguration.class})
-@ComponentScan(basePackageClasses = DomainMarker.class)
-@EntityScan(basePackageClasses = DomainMarker.class)
-//@Import({DomainDataSourceJpaConfig.class})
+@EnableAutoConfiguration(exclude = {
+    DataSourceAutoConfiguration.class,
+    DataSourceTransactionManagerAutoConfiguration.class,
+    HibernateJpaAutoConfiguration.class})
+@ComponentScan(basePackageClasses = DomainMarker.class) //이코드로 인해서 domain 에있는 cache component 를 스캔할수있음
+@EntityScan(basePackageClasses = DomainMarker.class) //domain entity 가져옴 com.gojgho.servicedomain
 public class DomainConfig {
 
 }
