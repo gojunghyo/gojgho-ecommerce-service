@@ -1,5 +1,6 @@
 package com.gojgho.serviceapi.ecommerce.service;
 
+import com.gojgho.servicedomain.cache.UserCache;
 import com.gojgho.servicedomain.repository.UserRepository;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,6 +14,7 @@ public class UserService {
   // class 로 private final UserRepository 부분을 record 가 대체 가능
 
   private final UserRepository userRepository;
+  private final UserCache userCache;
 
   public List<UserDto> findAllUsers() {
      return userRepository.findAll()
@@ -28,4 +30,9 @@ public class UserService {
         .collect(Collectors.toList());
   }
 
+  public List<UserDto> findCacheUsers() {
+    return userCache.findAll().stream()
+        .map(UserDto::fromEntity)
+        .collect(Collectors.toList());
+  }
 }

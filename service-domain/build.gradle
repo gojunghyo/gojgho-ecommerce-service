@@ -16,6 +16,9 @@ dependencies {
     implementation 'mysql:mysql-connector-java:8.0.23' // MySQL 드라이버 추가
     implementation("org.flywaydb:flyway-mysql")
 
+    //cache 의존성 주입
+    implementation 'com.google.guava:guava:30.1-jre'
+
 }
 
 // flyway 설정
