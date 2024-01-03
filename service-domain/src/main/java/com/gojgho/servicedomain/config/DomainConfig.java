@@ -11,13 +11,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@EnableAutoConfiguration(exclude = {
-    DataSourceAutoConfiguration.class,
-    DataSourceTransactionManagerAutoConfiguration.class,
-    HibernateJpaAutoConfiguration.class})
+//@EnableAutoConfiguration(exclude = {
+//    DataSourceAutoConfiguration.class,
+//    DataSourceTransactionManagerAutoConfiguration.class,
+//    HibernateJpaAutoConfiguration.class})
 @ComponentScan(basePackageClasses = DomainMarker.class)
 @EntityScan(basePackageClasses = DomainMarker.class)
-@Import({DomainDataSourceJpaConfig.class})
+//@Import({DomainDataSourceJpaConfig.class})
 public class DomainConfig {
 
 }
