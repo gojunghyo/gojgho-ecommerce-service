@@ -1,12 +1,13 @@
 package com.gojgho.serviceapi.ecommerce.controller;
 
 
+import com.gojgho.servicecommon.dto.ApiResponse;
+import com.gojgho.servicecommon.dto.ApiResponseGenerator;
 import com.gojgho.servicedomain.dto.UserDto;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,31 +25,31 @@ public class UserController {
 
 
   @RequestMapping("/find/all")
-  public ResponseEntity<List<UserDto>> findAllUsers() {
+  public ApiResponse<List<UserDto>> findAllUsers() {
     List<UserDto> users = userService.findAllUsers();
-    return ResponseEntity.ok().body(users);
+    return ApiResponseGenerator.success(users);
   }
 
   @RequestMapping("/find/all/querydsl")
-  public ResponseEntity<List<UserDto>> findAll() {
+  public ApiResponse<List<UserDto>> findAll() {
     List<UserDto> users = userService.findAllUsers();
-    return ResponseEntity.ok().body(users);
+    return ApiResponseGenerator.success(users);
   }
 
   @RequestMapping("/find/cache")
-  public ResponseEntity<List<UserDto>> findUsers() {
+  public ApiResponse<List<UserDto>> findUsers() {
     List<UserDto> cacheUsers = userService.findCacheUsers();
-    return ResponseEntity.ok().body(cacheUsers);
+    return ApiResponseGenerator.success(cacheUsers);
   }
 
   @RequestMapping("/find/{userEmail}")
-  public ResponseEntity<UserDto> findUserByUserEmail(@PathVariable String userEmail) {
-   return ResponseEntity.ok(userService.findUserByUserEmail(userEmail));
+  public ApiResponse<List<UserDto>> findUserByUserEmail(@PathVariable String userEmail) {
+   return ApiResponseGenerator.success(userService.findByUserEmailIsLike(userEmail));
   }
 
   @PostMapping("/create")
-  public ResponseEntity<UserDto> createUser(@RequestBody final UserDto userDto) {
-    return ResponseEntity.ok(userService.createUser(userDto));
+  public ApiResponse<UserDto> createUser(@RequestBody final UserDto userDto) {
+    return ApiResponseGenerator.success(userService.createUser(userDto));
   }
 
 }

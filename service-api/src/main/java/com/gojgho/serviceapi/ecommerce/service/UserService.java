@@ -38,10 +38,10 @@ public class UserService {
         .collect(Collectors.toList());
   }
 
-  public UserDto findUserByUserEmail(final String userEmail) {
-    return userRepository.findByUserEmail(userEmail)
-        .map(UserDto::fromEntity)
-        .orElseThrow(EntityNotFoundException::new);
+  public List<UserDto> findByUserEmailIsLike(final String userEmail) {
+    return userRepository.findByUserEmailIsLike("%"+userEmail+"%")
+        .stream().map(UserDto::fromEntity)
+        .collect(Collectors.toUnmodifiableList());
   }
 
   public UserDto createUser(final UserDto userDto) {
