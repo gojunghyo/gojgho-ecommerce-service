@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/v1/hello")
-@Api("헬로 API")
+@Api(tags = "헬로 API")
 public class HelloTestController {
 
   @GetMapping

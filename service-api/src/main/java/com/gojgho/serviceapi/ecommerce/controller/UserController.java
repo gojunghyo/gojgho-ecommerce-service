@@ -22,28 +22,28 @@ import com.gojgho.serviceapi.ecommerce.service.UserService;
 @RequestMapping("/v1/user")
 @RequiredArgsConstructor
 @Slf4j
-@Api("유저 API")
+@Api(tags = "유저 API")
 public class UserController {
 
   private final UserService userService;
 
 
   @GetMapping("/find/all")
-  @ApiOperation("전체 유저 조회")
+  @ApiOperation(value = "전체 유저 조회")
   public ApiResponse<List<UserDto>> findAllUsers() {
     List<UserDto> users = userService.findAllUsers();
     return ApiResponseGenerator.success(users);
   }
 
   @GetMapping("/find/all/querydsl")
-  @ApiOperation("전체 유저 QueryDsl 조회")
+  @ApiOperation(value = "전체 유저 QueryDsl 조회")
   public ApiResponse<List<UserDto>> findAll() {
     List<UserDto> users = userService.findAllUsers();
     return ApiResponseGenerator.success(users);
   }
 
   @GetMapping("/find/cache")
-  @ApiOperation("전체 유저 Cache 조회")
+  @ApiOperation(value = "전체 유저 Cache 조회")
   public ApiResponse<List<UserDto>> findUsers() {
     List<UserDto> cacheUsers = userService.findCacheUsers();
     return ApiResponseGenerator.success(cacheUsers);
