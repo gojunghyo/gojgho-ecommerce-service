@@ -20,7 +20,7 @@ public class UserCache {
   private static final int CACHE_MAXIMUM_SIZE = 1;
 
   //캐시 유지 시간
-  private static final int CACHE_EXPIRATION_MINUTES = 20;
+  private static final int CACHE_EXPIRATION_SECONDS = 20;
   private static final String CACHE_KEY_NAME = "user-items";
 
   private final LoadingCache<String, List<User>> users;
@@ -32,7 +32,7 @@ public class UserCache {
 
     this.users = CacheBuilder.newBuilder()
         .maximumSize(CACHE_MAXIMUM_SIZE)
-        .expireAfterAccess(CACHE_EXPIRATION_MINUTES, TimeUnit.SECONDS)
+        .expireAfterAccess(CACHE_EXPIRATION_SECONDS, TimeUnit.SECONDS)
         .build(CacheLoader.from(this::load));
   }
 
