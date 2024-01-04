@@ -5,7 +5,7 @@
  */
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.7.9'
+    id 'org.springframework.boot' version '3.2.0'
 }
 
 repositories {
@@ -42,7 +42,8 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
         //	 'p6spy:p6spy' 로깅할떄 편리하게 바인딩 된 쿼리 확인가능
-        implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.6.2'
+        implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0'
+
 
     }
 
@@ -51,7 +52,7 @@ subprojects {
     }
 }
 
-project(':service-api') { // 컴파일 시 service-domain 로딩
+project(':service-api') { // compile 시에만 빌드하고 빌드 결과물에는 포함하지 않는다.
     dependencies {
         compileOnly project(':service-domain')
         compileOnly project(':service-common')

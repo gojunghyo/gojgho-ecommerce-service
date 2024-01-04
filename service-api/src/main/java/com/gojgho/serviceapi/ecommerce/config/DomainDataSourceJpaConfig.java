@@ -5,7 +5,7 @@ import static com.gojgho.serviceapi.ecommerce.config.DomainDataSourceJpaConfig.E
 import static com.gojgho.serviceapi.ecommerce.config.DomainDataSourceJpaConfig.ECOMMERCE_DOMAIN_TRANSACTION_MANAGER;
 
 import com.zaxxer.hikari.HikariDataSource;
-import javax.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

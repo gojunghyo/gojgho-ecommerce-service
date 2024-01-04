@@ -5,7 +5,6 @@ import com.gojgho.servicedomain.entity.user.User;
 import com.gojgho.servicedomain.repository.UserRepository;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.gojgho.servicedomain.dto.UserDto;
