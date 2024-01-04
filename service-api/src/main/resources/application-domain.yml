@@ -28,7 +28,3 @@ ecommerce:
             batch_size: 500
             fetch_szie: 500
             batch_versioned_data: true
-logging:
-  level:
-    org.hibernate.SQL: DEBUG
-    org.flywaydb: DEBUG
