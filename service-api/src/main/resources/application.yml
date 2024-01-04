@@ -1,6 +1,10 @@
 
 
 spring:
+#swagger 3.0 버전과 spring boot 2.6 버전 이후에 strategy 값이 path_pattern_parser 로 변경되어 아래값으로 명시
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   profiles:
     include:
       - domain

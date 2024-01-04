@@ -43,3 +43,7 @@ Mysql 접속 정보
 
 ### flyway-migration 실행후 아래와 같이 Data가 들어왔다면 셋팅 완료
 ![local_db_flyway](https://github.com/gojunghyo/gojgho-ecommerce-service/assets/128199051/b756a4df-ac1c-4760-ac50-86066bd2c21a)
+
+
+### Swagger 주소
+1. http://localhost:9090/swagger-ui/index.html
